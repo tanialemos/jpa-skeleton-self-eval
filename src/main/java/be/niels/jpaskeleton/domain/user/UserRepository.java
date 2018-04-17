@@ -1,4 +1,4 @@
-package be.niels.jpaskeleton.domain;
+package be.niels.jpaskeleton.domain.user;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

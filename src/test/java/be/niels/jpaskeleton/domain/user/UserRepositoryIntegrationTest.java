@@ -1,4 +1,4 @@
-package be.niels.jpaskeleton.domain;
+package be.niels.jpaskeleton.domain.user;
 
 import be.niels.jpaskeleton.Application;
 import org.assertj.core.api.Assertions;
