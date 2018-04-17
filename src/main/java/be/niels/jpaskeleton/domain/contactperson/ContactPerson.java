@@ -12,7 +12,7 @@ public class ContactPerson {
     @Column(name = "contactperson_id")
     @SequenceGenerator(name = "contactperson_seq", sequenceName = "contactperson_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contactperson_seq")
-    private String contactPersonId;
+    private int contactPersonId;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -29,7 +29,7 @@ public class ContactPerson {
     public ContactPerson() {
     }
 
-    ContactPerson(String contactPersonId, String firstName, String lastName, String mobilePhone, String fixedPhone, String email, Address address) {
+    ContactPerson(int contactPersonId, String firstName, String lastName, String mobilePhone, String fixedPhone, String email, Address address) {
         this.contactPersonId = contactPersonId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,7 +39,7 @@ public class ContactPerson {
         this.address = address;
     }
 
-    public String getContactPersonId() {
+    public int getContactPersonId() {
         return contactPersonId;
     }
 
@@ -68,7 +68,7 @@ public class ContactPerson {
     }
 
     public static class ContactPersonBuilder {
-        private String contactPersonId;
+        private int contactPersonId;
         private String firstName;
         private String lastName;
         private String mobilePhone;
@@ -80,7 +80,7 @@ public class ContactPerson {
             return new ContactPersonBuilder();
         }
 
-        public ContactPersonBuilder withContactPersonId(String contactPersonId) {
+        public ContactPersonBuilder withContactPersonId(int contactPersonId) {
             this.contactPersonId = contactPersonId;
             return this;
         }
