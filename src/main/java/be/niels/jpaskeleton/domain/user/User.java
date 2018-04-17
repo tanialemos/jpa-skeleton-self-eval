@@ -1,4 +1,4 @@
-package be.niels.jpaskeleton.domain;
+package be.niels.jpaskeleton.domain.user;
 
 import javax.persistence.*;
 
