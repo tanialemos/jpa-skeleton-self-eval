@@ -48,8 +48,8 @@ create sequence division_seq
 DROP TABLE contact_persons
 create table contact_persons(
     contactperson_id       number(6) not null,
-    firstName    varchar2(255) not null,
-    lastName     varchar2(255) not null,
+    first_name    varchar2(255) not null,
+    last_name     varchar2(255) not null,
     mobile_phone varchar2(20),
     fixed_phone  varchar2(20),
     email        varchar2(255) not null,

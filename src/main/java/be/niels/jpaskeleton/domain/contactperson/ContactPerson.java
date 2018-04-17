@@ -2,19 +2,28 @@ package be.niels.jpaskeleton.domain.contactperson;
 
 import be.niels.jpaskeleton.domain.address.Address;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "CONTACT_PERSONS")
 public class ContactPerson {
 
+    @Id
+    @Column(name = "contactperson_id")
+    @SequenceGenerator(name = "contactperson_seq", sequenceName = "contactperson_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contactperson_seq")
     private String contactPersonId;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "mobile_phone")
     private String mobilePhone;
+    @Column(name = "fixed_name")
     private String fixedPhone;
+    @Column(name = "email")
     private String email;
+    @Embedded
     private Address address;
 
     public ContactPerson() {
@@ -67,7 +76,8 @@ public class ContactPerson {
         private String email;
         private Address address;
 
-        public ContactPersonBuilder() {
+        public static ContactPersonBuilder ContactPersonBuilder() {
+            return new ContactPersonBuilder();
         }
 
         public ContactPersonBuilder withContactPersonId(String contactPersonId) {

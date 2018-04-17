@@ -2,6 +2,8 @@ package be.niels.jpaskeleton.domain.address;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Embeddable
 public class Address {
@@ -12,7 +14,8 @@ public class Address {
     @Column(name = "STREET_NUMBER")
     private String streetNumber;
 
-    @Column(name = "POSTALCODE")
+    @ManyToOne
+    @JoinColumn(name = "POSTALCODE")
     private PostalCode postalCode;
 
     public Address() {
