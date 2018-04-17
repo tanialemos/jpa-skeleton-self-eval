@@ -29,8 +29,7 @@ public class ContactPerson {
     public ContactPerson() {
     }
 
-    ContactPerson(int contactPersonId, String firstName, String lastName, String mobilePhone, String fixedPhone, String email, Address address) {
-        this.contactPersonId = contactPersonId;
+    ContactPerson(String firstName, String lastName, String mobilePhone, String fixedPhone, String email, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobilePhone = mobilePhone;
@@ -68,7 +67,6 @@ public class ContactPerson {
     }
 
     public static class ContactPersonBuilder {
-        private int contactPersonId;
         private String firstName;
         private String lastName;
         private String mobilePhone;
@@ -78,11 +76,6 @@ public class ContactPerson {
 
         public static ContactPersonBuilder ContactPersonBuilder() {
             return new ContactPersonBuilder();
-        }
-
-        public ContactPersonBuilder withContactPersonId(int contactPersonId) {
-            this.contactPersonId = contactPersonId;
-            return this;
         }
 
         public ContactPersonBuilder withFirstName(String firstName) {
@@ -116,7 +109,7 @@ public class ContactPerson {
         }
 
         public ContactPerson createContactPerson() {
-            return new ContactPerson(contactPersonId, firstName, lastName, mobilePhone, fixedPhone, email, address);
+            return new ContactPerson(firstName, lastName, mobilePhone, fixedPhone, email, address);
         }
     }
 }

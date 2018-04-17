@@ -11,7 +11,7 @@ DROP SEQUENCE USERS_SEQUENCE;
 CREATE SEQUENCE USERS_SEQUENCE start with 1 INCREMENT by 1;
 
 -- POSTALCODE
-DROP TABLE POSTALCODE
+DROP TABLE POSTALCODE;
 create table postalcode(
     postalcode      number(4) not null,
     postalcode_label varchar2(255) not null
@@ -20,7 +20,7 @@ alter table postalcode
 add constraint pk_postalcode primary key (postalcode);
 
 -- BUILDING TYPES
-DROP TABLE building_types
+DROP TABLE building_types;
 create table building_types(
     building_code   char(1) not null,
     building_type   varchar2(255) not null
@@ -30,6 +30,8 @@ add constraint pk_buildingtype primary key (building_code);
 
 
 -- DIVISIONS
+ALTER TABLE PARKING_LOTS
+DROP CONSTRAINT  fk_parkinglot_division;
 DROP TABLE divisions;
 create table divisions(
     division_id     number(2) not null,
@@ -39,13 +41,15 @@ create table divisions(
 );
 alter table divisions
 add constraint pk_division primary key (division_id);
-DROP SEQUENCE division_seq
+DROP SEQUENCE division_seq;
 create sequence division_seq
     start with 1
     increment by 1;
 
 -- CONTACT PERSONS
-DROP TABLE contact_persons
+ALTER TABLE PARKING_LOTS
+DROP CONSTRAINT  fk_parkinglot_contactperson;
+DROP TABLE contact_persons;
 create table contact_persons(
     contactperson_id       number(6) not null,
     first_name    varchar2(255) not null,
@@ -61,14 +65,14 @@ alter table contact_persons
 add constraint pk_contactperson primary key (contactperson_id);
 alter table contact_persons
 add constraint fk_contactperson_postalcode foreign key (postalcode) references postalcode(postalcode);
-drop sequence contactperson_seq
+drop sequence contactperson_seq;
 create sequence contactperson_seq
     start with 1
     increment by 1;
 
 
 -- PARKING LOTS
-drop table parking_lots
+drop table parking_lots;
 create table parking_lots(
     parkinglot_id       number(6) not null,
     name         varchar2(255) not null,
@@ -91,7 +95,7 @@ alter table parking_lots
 add constraint fk_parkinglot_contactperson foreign key (contactperson) references contact_persons(contactperson_id);
 alter table parking_lots
 add constraint fk_parkinglot_postalcode foreign key (postalcode) references postalcode(postalcode);
-drop sequence parkinglot_seq
+drop sequence parkinglot_seq;
 create sequence parkinglot_seq
     start with 1
     increment by 1;
