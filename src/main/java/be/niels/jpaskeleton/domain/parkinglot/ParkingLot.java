@@ -44,6 +44,38 @@ public class ParkingLot {
         this.hourlyPrice = hourlyPrice;
     }
 
+    public int getParkingLotId() {
+        return parkingLotId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public BuildingType getBuildingType() {
+        return buildingType;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public ContactPerson getContactPerson() {
+        return contactPerson;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public double getHourlyPrice() {
+        return hourlyPrice;
+    }
+
     public static class ParkingLotBuilder {
         private String name;
         private Division division;

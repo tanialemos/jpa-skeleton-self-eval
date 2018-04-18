@@ -17,4 +17,9 @@ public class BuildingTypeRepository {
         entityManager.persist(buildingType);
         return buildingType;
     }
+
+    public BuildingType getByCode(String code){
+        char char_code = code.charAt(0);
+        return entityManager.find(BuildingType.class, char_code);
+    }
 }
