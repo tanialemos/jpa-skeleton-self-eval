@@ -22,4 +22,6 @@ public class ContactPersonRepository {
         return entityManager.find(ContactPerson.class, id);
     }
 
+
+
 }

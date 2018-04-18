@@ -41,7 +41,14 @@ public class ContactPersonRepositoryTest {
         Assertions.assertThat(savedCp.getContactPersonId()).isNotEqualTo(0);
     }
 
+//    @Test
+//    public void findById() {
+//    }
+
     @Test
-    public void findById() {
+    public void getByName_happyPath(){
+        Assertions.assertThat(contactPersonRepository.getByName()).isEqualTo(person);
     }
+
+
 }

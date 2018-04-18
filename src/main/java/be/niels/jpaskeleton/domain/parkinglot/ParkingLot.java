@@ -5,20 +5,30 @@ import be.niels.jpaskeleton.domain.buildingtype.BuildingType;
 import be.niels.jpaskeleton.domain.contactperson.ContactPerson;
 import be.niels.jpaskeleton.domain.division.Division;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PARKING_LOTS")
 public class ParkingLot {
 
+    @Column(name = "PARKINGLOT_ID")
     private int parkingLotId;
+    @Column(name = "NAME")
     private String name;
+    @ManyToOne
+    @JoinColumn(name = "DIVISION_ID")
     private Division division;
+    @ManyToOne
+    @JoinColumn(name="BUILDING_CODE")
     private BuildingType buildingType;
+    @Column(name = "CAPACITY")
     private int capacity;
+    @ManyToOne
+    @JoinColumn(name = "CONTACTPERSON_ID")
     private ContactPerson contactPerson;
+    @Embedded
     private Address address;
+    @Column(name = "HOURLY_PRICE")
     private double hourlyPrice;
 
     private ParkingLot(String name, Division division, BuildingType buildingType, int capacity, ContactPerson contactPerson, Address address, double hourlyPrice) {
