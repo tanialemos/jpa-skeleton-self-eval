@@ -19,7 +19,7 @@ public class ContactPerson {
     private String lastName;
     @Column(name = "mobile_phone")
     private String mobilePhone;
-    @Column(name = "fixed_name")
+    @Column(name = "fixed_phone")
     private String fixedPhone;
     @Column(name = "email")
     private String email;

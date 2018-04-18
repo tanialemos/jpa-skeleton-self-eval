@@ -11,6 +11,9 @@ import javax.persistence.*;
 @Table(name = "PARKING_LOTS")
 public class ParkingLot {
 
+    @Id
+    @SequenceGenerator(name = "parkinglot_seq", sequenceName = "parkinglot_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parkinglot_seq")
     @Column(name = "PARKINGLOT_ID")
     private int parkingLotId;
     @Column(name = "NAME")

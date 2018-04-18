@@ -23,5 +23,10 @@ public class ContactPersonRepository {
     }
 
 
-
+    public ContactPerson getByName(String lastName, String firstName) {
+        return entityManager.createQuery("FROM ContactPerson p WHERE lastName = :lastName AND firstName = :firstName", ContactPerson.class)
+                .setParameter("lastName", lastName)
+                .setParameter("firstName", firstName)
+                .getSingleResult();
+    }
 }

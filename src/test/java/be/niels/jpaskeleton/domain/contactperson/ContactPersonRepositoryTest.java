@@ -46,8 +46,22 @@ public class ContactPersonRepositoryTest {
 //    }
 
     @Test
+    @Transactional
     public void getByName_happyPath(){
-        Assertions.assertThat(contactPersonRepository.getByName()).isEqualTo(person);
+        PostalCode pc = new PostalCode(1050, "Ixelles");
+        Address address = new Address("Rue de la fatigue", "25", pc);
+
+        ContactPerson cp = ContactPerson.ContactPersonBuilder.ContactPersonBuilder()
+                .withFirstName("John")
+                .withLastName("Smith")
+                .withEmail("john.smith@gmail.com")
+                .withMobilePhone("0487595653")
+                .withAddress(address)
+                .createContactPerson();
+
+        ContactPerson savedCp = contactPersonRepository.save(cp);
+
+        Assertions.assertThat(contactPersonRepository.getByName("Smith", "John")).isEqualTo(savedCp);
     }
 
 
