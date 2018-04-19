@@ -1,5 +1,7 @@
 package be.niels.jpaskeleton.domain.address;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
@@ -38,4 +40,7 @@ public class Address {
     public PostalCode getPostalCode() {
         return postalCode;
     }
+
+    //TODO
+    //Address To sting
 }

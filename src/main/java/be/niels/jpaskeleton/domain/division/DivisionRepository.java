@@ -22,4 +22,9 @@ public class DivisionRepository {
         return entityManager.find(Division.class, id);
     }
 
+    public Division getByName(String name) {
+        return entityManager.createQuery("FROM Division WHERE name = :name", Division.class)
+                .setParameter("name", name)
+                .getSingleResult();
+    }
 }
