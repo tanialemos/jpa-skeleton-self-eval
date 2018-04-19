@@ -21,4 +21,8 @@ public class ContactPersonService {
     public ContactPerson save(ContactPerson contactPerson){
         return contactPersonRepository.save(contactPerson);
     }
+
+    public ContactPerson getByName(String lastName, String firstName){
+        return contactPersonRepository.getByName(lastName, firstName);
+    }
 }
