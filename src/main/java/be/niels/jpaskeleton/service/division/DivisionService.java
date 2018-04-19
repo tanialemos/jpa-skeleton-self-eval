@@ -21,4 +21,8 @@ public class DivisionService {
     public Division save(Division division){
         return divisionRepository.save(division);
     }
+
+    public Division getById(int id){
+        return divisionRepository.getById(id);
+    }
 }

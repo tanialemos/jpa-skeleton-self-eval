@@ -5,6 +5,7 @@ import be.niels.jpaskeleton.domain.buildingtype.BuildingTypeRepository;
 import be.niels.jpaskeleton.domain.contactperson.ContactPersonRepository;
 import be.niels.jpaskeleton.domain.division.Division;
 import be.niels.jpaskeleton.domain.division.DivisionRepository;
+import be.niels.jpaskeleton.domain.parkinglot.ParkingLot;
 import be.niels.jpaskeleton.domain.parkinglot.ParkingLotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,8 @@ public class ParkingLotService {
         this.parkingLotRepository = parkingLotRepository;
     }
 
+    public ParkingLot save(ParkingLot parkingLot){
+        return parkingLotRepository.save(parkingLot);
+    }
 
 }

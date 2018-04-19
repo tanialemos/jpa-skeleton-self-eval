@@ -18,4 +18,8 @@ public class DivisionRepository {
         return division;
     }
 
+    public Division getById(int id){
+        return entityManager.find(Division.class, id);
+    }
+
 }
